@@ -104,7 +104,7 @@ exports.delete = (req, res) => {
           message: "Could not delete Ebook with id " + req.params.id
         });
       }
-    } else res.send({ message: `Ebook was deleted successfully!` });
+    } else res.send({ message: `Ebook with id ${req.params.id} was deleted successfully!` });
   });
 };
 
