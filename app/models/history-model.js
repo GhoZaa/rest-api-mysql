@@ -38,12 +38,12 @@ History.findById = (uuid, result) => {
   });
 };
 
-History.getAll = (title, result) => {
+History.getAll = (result) => {
   let query = "SELECT * FROM history";
 
-  if (title) {
-    query += ` WHERE title LIKE '%${title}%'`;
-  }
+//   if (title) {
+//     query += ` WHERE title LIKE '%${title}%'`;
+//   }
 
   sql.query(query, (err, res) => {
     if (err) {
