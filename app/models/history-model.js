@@ -20,7 +20,7 @@ History.create = (newItem, result) => {
 };
 
 History.findById = (uuid, result) => {
-  sql.query(`SELECT * FROM history WHERE uuid = ${uuid}`, (err, res) => {
+  sql.query(`SELECT * FROM history WHERE uuid = "${uuid}"`, (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(err, null);
@@ -59,7 +59,7 @@ History.getAll = (result) => {
 
 History.updateById = (uuid, history, result) => {
   sql.query(
-    "UPDATE history SET log = ? WHERE uuid = ?",
+    'UPDATE history SET log = ? WHERE uuid = ""?',
     [history.log, uuid],
     (err, res) => {
       if (err) {
@@ -111,5 +111,20 @@ History.removeAll = result => {
     result(null, res);
   });
 };
+
+History.getHistoryCount = (result) => {
+    let query = "SELECT COUNT(*) FROM history";
+  
+    sql.query(query, (err, res) => {
+      if (err) {
+        console.log("error: ", err);
+        result(null, err);
+        return;
+      }
+  
+      console.log("history record size: ", res);
+      result(null, res);
+    });
+  };
 
 module.exports = History;
