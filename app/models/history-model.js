@@ -28,7 +28,7 @@ History.findById = (uuid, result) => {
     }
 
     if (res.length) {
-      console.log("found history type: ", res[0]);
+      console.log("found history item: ", res[0]);
       result(null, res[0]);
       return;
     }
@@ -122,8 +122,8 @@ History.getHistoryCount = (result) => {
         return;
       }
   
-      console.log("history record size: ", res);
-      result(null, res);
+      console.log("history record size: ", res[0]);
+      result(null, res[0]);
     });
   };
 
