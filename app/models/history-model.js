@@ -113,7 +113,7 @@ History.removeAll = result => {
 };
 
 History.getHistoryCount = (result) => {
-    let query = "SELECT COUNT(*) FROM history";
+    let query = "SELECT COUNT(*) AS size FROM history";
   
     sql.query(query, (err, res) => {
       if (err) {

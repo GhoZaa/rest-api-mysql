@@ -29,6 +29,9 @@ module.exports = app => {
     // Retrieve all history
     router.get("/history/", history.findAll);
 
+    // Get history record size
+    router.get("/history-size/", history.countHistory);
+
     // Retrieve a single history with uuid
     router.get("/history/:uuid", history.findOne);
 

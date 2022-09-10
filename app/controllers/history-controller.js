@@ -40,6 +40,19 @@ exports.findAll = (req, res) => {
   });
 };
 
+// Get history record size
+exports.countHistory = (req, res) => {
+    
+    History.getHistoryCount((err, data) => {
+    if (err)
+        res.status(500).send({
+        message:
+            err.message || "Some error occurred while retrieving history record size."
+        });
+    else res.send(data);
+    });
+};
+
 // Find a single History by Id
 exports.findOne = (req, res) => {
   History.findById(req.params.uuid, (err, data) => {
