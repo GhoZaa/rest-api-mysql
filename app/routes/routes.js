@@ -3,22 +3,22 @@ module.exports = app => {
     var router = require("express").Router();
 
     // Add new ebook item
-    router.post("/", ebook.create);
+    router.post("/ebook/", ebook.create);
 
     // Retrieve all ebook
-    router.get("/", ebook.findAll);
+    router.get("/ebook/", ebook.findAll);
 
     // Retrieve a single ebook with id
-    router.get("/:id", ebook.findOne);
+    router.get("/ebook/:id", ebook.findOne);
 
     // Update a ebook with id
-    router.put("/:id", ebook.update);
+    router.put("/ebook/:id", ebook.update);
 
     // Delete a ebook with id
-    router.delete("/:id", ebook.delete);
+    router.delete("/ebook/:id", ebook.delete);
 
     // Delete all ebook
-    router.delete("/", ebook.deleteAll);
+    router.delete("/ebook/", ebook.deleteAll);
 
-    app.use('/api/ebook', router);
+    app.use('/api', router);
 };
